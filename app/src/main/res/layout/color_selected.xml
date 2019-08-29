@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--this will alow us to merg this views to linear layout-->
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+</merge>
