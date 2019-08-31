@@ -1,10 +1,12 @@
 package com.amirahmadadibi.projects.androidcustomviews
 
+import android.app.WallpaperManager
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.AdapterView
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.color_selected.view.*
 
@@ -19,7 +21,7 @@ import kotlinx.android.synthetic.main.color_selected.view.*
 //generate all for different constructors
 class ColorSelector : LinearLayout {
     //by defining default value we remove constructor overloading
-     @JvmOverloads//
+    @JvmOverloads//
     constructor(
         context: Context,
         attributesSet: AttributeSet? = null,
@@ -27,10 +29,14 @@ class ColorSelector : LinearLayout {
         defRes: Int = 0
     ) : super(context, attributesSet, defStyle, defRes)
 
-
+    private var onColorSelectedListener: IColorSelectorListener? = null
     private var listOfColors = listOf(Color.BLUE, Color.RED, Color.GREEN)
     private var selectedColorIndex = 0
 
+
+    fun setColorSelectorListener(onColorSelectedListener : IColorSelectorListener){
+        this.onColorSelectedListener = onColorSelectedListener
+    }
     //it gets run no matter of constructors
     init {
         orientation = HORIZONTAL
@@ -58,7 +64,7 @@ class ColorSelector : LinearLayout {
         } else {
             selectedColorIndex++
         }
-
+        broadcastColor(listOfColors[selectedColorIndex])
         selectedColorView.setBackgroundColor(listOfColors[selectedColorIndex])
 
     }
@@ -69,8 +75,15 @@ class ColorSelector : LinearLayout {
         } else {
             selectedColorIndex--
         }
-
+        broadcastColor(listOfColors[selectedColorIndex])
         selectedColorView.setBackgroundColor(listOfColors[selectedColorIndex])
     }
 
+    private fun broadcastColor(color: Int) {
+        this.onColorSelectedListener?.onColorSelected(color)
+    }
+}
+
+interface IColorSelectorListener {
+    fun onColorSelected(selectedColor: Int)
 }
