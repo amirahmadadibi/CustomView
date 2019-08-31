@@ -2,5 +2,35 @@
 <!--this will alow us to merg this views to linear layout-->
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/colorSelectorArrowLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="14dp"
+        android:src="@drawable/ic_keyboard_arrow_left" />
+    <View
+        android:id="@+id/selectedColorView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="14dp"/>
 
+
+    <ImageView
+        android:id="@+id/colorSelectorArrowRight"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:padding="14dp"
+        android:src="@drawable/ic_keyboard_arrow_right" />
+
+    <CheckBox
+        android:id="@+id/colorEnabled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enabled"
+        android:layout_gravity="center_vertical"/>
 </merge>
