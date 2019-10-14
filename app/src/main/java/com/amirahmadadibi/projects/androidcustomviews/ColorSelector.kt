@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.AdapterView
 import android.widget.LinearLayout
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import kotlinx.android.synthetic.main.color_selected.view.*
 
 /**
@@ -21,7 +23,7 @@ import kotlinx.android.synthetic.main.color_selected.view.*
 //generate all for different constructors
 class ColorSelector : LinearLayout {
     //by defining default value we remove constructor overloading
-    @JvmOverloads//
+    @JvmOverloads
     constructor(
         context: Context,
         attributesSet: AttributeSet? = null,
@@ -50,10 +52,11 @@ class ColorSelector : LinearLayout {
         selectedColorView.setBackgroundColor(listOfColors[selectedColorIndex])
         colorSelectorArrowLeft.setOnClickListener {
             selectPreviousColor()
+            YoYo.with(Techniques.BounceIn).duration(300).repeat(0).playOn(selectedColorView)
         }
         colorSelectorArrowRight.setOnClickListener {
             selectNextColor()
-
+            YoYo.with(Techniques.BounceIn).duration(300).repeat(0).playOn(selectedColorView)
         }
         Log.d("custom", "android custom layout added")
     }
@@ -77,6 +80,7 @@ class ColorSelector : LinearLayout {
         }
         broadcastColor(listOfColors[selectedColorIndex])
         selectedColorView.setBackgroundColor(listOfColors[selectedColorIndex])
+
     }
 
     private fun broadcastColor(color: Int) {
