@@ -2,11 +2,9 @@ package com.amirahmadadibi.projects.androidcustomviews
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +17,8 @@ class MainActivity : AppCompatActivity(){
 //            }
 //        })
 
-        colorSelector.setOnChoseListener {
-            Log.d("tagxx", "${it}")
+        colorSelector.colorSelectedListener = { color: Int ->
+
         }
     }
 }

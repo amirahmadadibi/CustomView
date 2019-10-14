@@ -32,7 +32,10 @@ class ColorSelector : LinearLayout {
 //    private var onColorSelectedListener: IColorSelectorListener? = null
     private var listOfColors = listOf(Color.BLUE, Color.RED, Color.GREEN)
     private var selectedColorIndex = 0
-    private var colorSelectedListener: ((Int) -> Unit)? = null
+    var colorSelectedListener: ((Int) -> Unit)? = null
+    var lastColor:Int = Color.RED
+    private set
+
 
 //    fun setColorSelectorListener(onColorSelectedListener: IColorSelectorListener) {
 //        this.onColorSelectedListener = onColorSelectedListener
@@ -84,15 +87,16 @@ class ColorSelector : LinearLayout {
 
     private fun broadcastColor(color: Int) {
 //        this.onColorSelectedListener?.onColorSelected(color)
+        lastColor = color
         colorSelectedListener?.let {
             it(color)
         }
     }
 
 
-    fun setOnChoseListener(color: (Int) -> Unit) {
-        colorSelectedListener = color
-    }
+//    fun setOnChoseListener(color: (Int) -> Unit) {
+//        colorSelectedListener = color
+//    }
 }
 
 //an interface with just one method is called functional interface
