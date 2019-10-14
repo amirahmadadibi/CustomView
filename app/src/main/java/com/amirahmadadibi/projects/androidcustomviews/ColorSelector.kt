@@ -1,12 +1,10 @@
 package com.amirahmadadibi.projects.androidcustomviews
 
-import android.app.WallpaperManager
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.AdapterView
 import android.widget.LinearLayout
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
@@ -31,15 +29,16 @@ class ColorSelector : LinearLayout {
         defRes: Int = 0
     ) : super(context, attributesSet, defStyle, defRes)
 
-    private var onColorSelectedListener: IColorSelectorListener? = null
+//    private var onColorSelectedListener: IColorSelectorListener? = null
     private var listOfColors = listOf(Color.BLUE, Color.RED, Color.GREEN)
     private var selectedColorIndex = 0
+    private var colorSelectedListener: ((Int) -> Unit)? = null
 
+//    fun setColorSelectorListener(onColorSelectedListener: IColorSelectorListener) {
+//        this.onColorSelectedListener = onColorSelectedListener
+//    }
 
-    fun setColorSelectorListener(onColorSelectedListener : IColorSelectorListener){
-        this.onColorSelectedListener = onColorSelectedListener
-    }
-    //it gets run no matter of constructors
+    //it gets run no matter of constru ctors
     init {
         orientation = HORIZONTAL
 
@@ -84,10 +83,20 @@ class ColorSelector : LinearLayout {
     }
 
     private fun broadcastColor(color: Int) {
-        this.onColorSelectedListener?.onColorSelected(color)
+//        this.onColorSelectedListener?.onColorSelected(color)
+        colorSelectedListener?.let {
+            it(color)
+        }
+    }
+
+
+    fun setOnChoseListener(color: (Int) -> Unit) {
+        colorSelectedListener = color
     }
 }
 
-interface IColorSelectorListener {
-    fun onColorSelected(selectedColor: Int)
-}
+//an interface with just one method is called functional interface
+//we want to change this with higher order funciton
+//interface IColorSelectorListener {
+//    fun onColorSelected(selectedColor: Int)
+//}
