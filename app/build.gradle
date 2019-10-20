@@ -36,4 +36,11 @@ dependencies {
     //YOYO animation
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+    //Superellipse
+    implementation 'com.github.MicroRJ:android_superellipse:2.0'
+
+    //calligraphy
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
 }

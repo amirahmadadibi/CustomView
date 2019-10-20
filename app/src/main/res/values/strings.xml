@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidCustomViews</string>
+    <string name="text_default">متن نمایشی</string>
 </resources>
