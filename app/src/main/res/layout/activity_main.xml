@@ -6,10 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.amirahmadadibi.projects.androidcustomviews.WhoamiButton
+    <com.amirahmadadibi.projects.androidcustomviews.BenefitView
+        android:id="@+id/benefitView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:image_background="@drawable/ic_drink_shangoli"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/benefitView5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text_custom="نوشیدنی شنگولی" />
+
+    <com.amirahmadadibi.projects.androidcustomviews.BenefitView
+        android:id="@+id/benefitView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:image_background="@drawable/ic_drink_and_beverage_filled_color"
+        app:layout_constraintEnd_toStartOf="@+id/benefitView5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text_custom="نوشیدنی سوسلی" />
+
+    <com.amirahmadadibi.projects.androidcustomviews.BenefitView
+        android:id="@+id/benefitView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:image_background="@drawable/ic_drink_coco"
+        app:layout_constraintEnd_toStartOf="@+id/benefitView6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/benefitView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text_custom="نوشیدنی گازدار" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/benefitView5"
+        android:max="8"
+        android:tickMark="@drawable/ic_edit"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,9 @@
         <attr name="color" format="color" />
         <attr name="background_image" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="BenefitView">
+        <attr name="image_background" format="reference"/>
+        <attr name="text_custom" format="string"/>
+    </declare-styleable>
 </resources>
